@@ -51,6 +51,11 @@ public class Book {
 		this.isbn = null;
 		this.price = 0;
 	}
+	@Override
+	public String toString() {
+		return "Book [title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn + ", price=" + price
+				+ "]";
+	}
 	
 	
 }
