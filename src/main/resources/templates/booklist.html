@@ -3,10 +3,13 @@
 <head>
     <title>Booklist</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
-	<h1>Books</h1>
+	<div class="col-md-4">
+		<h1>Books</h1>
+	</div>
 	
     <table class="table table-striped">
 		<tr>
@@ -15,6 +18,9 @@
 		    <th>Year</th>
 		    <th>ISBN</th>
 		    <th>Price</th>
+		    <th>Category</th>
+		    <th></th>
+		    <th></th>
 		</tr>  
     	<tr th:each = "book : ${book}">
     		<td th:text="${book.title}"></td>
@@ -22,10 +28,13 @@
     		<td th:text="${book.year}"></td>
     		<td th:text="${book.isbn}"></td>
     		<td th:text="${book.price}"></td>
+    		<td th:text="${book.category.name}"></td>
     		<td><a th:href="@{/delete/{id}(id=${book.id})}" type="button" class="btn btn-danger">Delete</a></td>
     		<td><a th:href="@{/edit/{id}(id=${book.id})}" type="button" class="btn btn-info">Edit</a></td>	    		
     	</tr>
      </table>
-	 <a href="/add" type="button" class="btn btn-info">Add Book</a>    	
+     <div class="col-md-4">
+	 <a href="/add" type="button" class="btn btn-success">Add Book</a>  
+	 </div>  	
 </body>
 </html>
