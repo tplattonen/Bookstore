@@ -21,6 +21,7 @@ public class Category {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="category")
 	private List<Book> books;
 	
+	//CONSTRUCTORS
 	public Category() {}
 	
 	public Category(String name) {
@@ -28,6 +29,7 @@ public class Category {
 		this.name = name;
 	}
 
+	// GETTERS & SETTERS
 	public Long getCategoryId() {
 		return categoryId;
 	}
