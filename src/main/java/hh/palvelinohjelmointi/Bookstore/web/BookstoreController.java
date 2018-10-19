@@ -28,6 +28,12 @@ public class BookstoreController {
 	public String tyhja() {
 		return "index";
 	}
+	/** Listaa kirjat tietokannasta **/
+	@RequestMapping(value="/booklist")
+    public String bookList(Model model) {	
+        model.addAttribute("books", bookRepository.findAll());
+        return "booklist";
+    }
 	
 	// RESTful service to get all books
 	 @RequestMapping(value="/books", method = RequestMethod.GET)
@@ -40,12 +46,6 @@ public class BookstoreController {
 		return bookRepository.findById(Id);
 	}       
 	
-	/** Listaa kirjat tietokannasta **/
-	@RequestMapping(value="/booklist")
-    public String studentList(Model model) {	
-        model.addAttribute("books", bookRepository.findAll());
-        return "booklist";
-    }
 	/** palauttaa tyhjän lomakkeen uuden kirjan lisäämiseen **/
 	@RequestMapping(value = "/add")
     public String addBook(Model model){
@@ -71,6 +71,11 @@ public class BookstoreController {
 		model.addAttribute("book",bookRepository.findById(bookId));
 		return "editBook";
 	}
+	
+	@RequestMapping(value="/login")
+	    public String login() {	
+	    return "login";
+	}	
 		
 		
 }
