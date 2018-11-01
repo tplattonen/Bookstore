@@ -16,6 +16,10 @@
 			<br>ISBN: <input type="text" th:field="*{isbn}" />
 			<br>Year: <input type="text" th:field="*{year}" />
 			<br>Price: <input type="text" th:field="*{price}" />
+			<br><label for="deplist">Category</label>
+			 <select id="deplist" th:field="*{category}" class="form-control">
+       			<option th:each="category: ${categorys}" th:value="${category.categoryId}" th:text="${category.name}"></option>
+    		</select>
 			<br><input type="submit" value="Save"/>
 </form>
 
