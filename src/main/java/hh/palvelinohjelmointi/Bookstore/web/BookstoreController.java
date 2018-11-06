@@ -25,10 +25,18 @@ public class BookstoreController {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
+	/*
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String tyhja() {
 		return "index";
+	} */
+	
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String defis(Model model) {
+		model.addAttribute("books", bookRepository.findAll());
+		return "booklist";
 	}
+	
 	/** Listaa kirjat tietokannasta **/
 	@RequestMapping(value="/booklist")
     public String bookList(Model model) {	
